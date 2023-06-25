@@ -48,8 +48,13 @@ public class CountryController {
     }
 
 
-    @GetMapping("/delete")
-    public String deleteCountryForm(Model model) {
+    @GetMapping(value = { "/delete", "/delete/{code}" })
+    public String deleteCountryForm(@PathVariable(name = "code", required = false) String code, Model model) {
+    	if (code!= null){
+    			model.addAttribute("code", code);
+    		}else {
+    			model.addAttribute("code","");
+    		}
 
         return "country/delete";
     }

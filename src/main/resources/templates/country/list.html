@@ -16,6 +16,12 @@
             <td th:text="${data.code}"></td>
             <td th:text="${data.name}"></td>
             <td th:text="${data.population}"></td>
+            <td >
+				<a th:href="@{http://localhost:8080/country/detail/{id}/(id=${data.code})}">詳細</a>
+			</td>
+            <td >
+				<a th:href="@{http://localhost:8080/country/delete/{id}/(id=${data.code})}">削除</a>
+			</td>
         </tr>
     </table>
 </body>
